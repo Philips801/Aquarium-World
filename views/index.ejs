@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+<main id="main-content">
+    <section class="hero">
+        <h1>Dive into Aquarium World</h1>
+        <p>Explore breathtaking underwater zones, encounter marine species, and discover our continuous local and global conservation initiatives.</p>
+    </section>
+
+    <div class="zones-grid">
+        <% zones.forEach(zone => { %>
+            <article class="zone-card">
+                <img src="<%= zone.image_url %>" alt="Visual preview of the <%= zone.name %> environment">
+                <div class="zone-card-content">
+                    <h2><%= zone.name %></h2>
+                    <p><%= zone.description %></p>
+                    <a href="/zone/<%= zone.slug %>" class="btn" aria-label="Explore <%= zone.name %>">Learn More</a>
+                </div>
+            </article>
+        <% }); %>
+    </div>
+</main>
+<%- include('partials/footer') %>

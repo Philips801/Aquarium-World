@@ -1,0 +1,61 @@
+<%- include('partials/header') %>
+
+<main id="main-content" class="contact-section">
+    <div class="contact-header">
+        <h1>Connect With Aquarium World</h1>
+        <p>Have a question about our marine conservation efforts, school educational visits, or wildlife research? Reach out to our expert team using the secure form below.</p>
+    </div>
+
+    <% if (success) { %>
+        <div class="success-message" role="alert">
+            <p><strong>Inquiry Logged!</strong> Your message has been safely recorded in our database. A marine conservation officer will respond within 48 hours.</p>
+        </div>
+    <% } %>
+
+    <!-- Professional, Accessible Form Configuration -->
+    <form action="/contact" method="POST" class="accessible-form">
+        
+        <fieldset>
+            <legend>Personal Information</legend>
+            
+            <div class="form-group">
+                <label for="name">Full Name <span class="required" aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name" required autocomplete="name" placeholder="e.g., Jane Doe">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address <span class="required" aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" required autocomplete="email" placeholder="e.g., jane@example.com">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Message Specifications</legend>
+
+            <div class="form-group">
+                <label for="subject">Inquiry Department <span class="required" aria-hidden="true">*</span></label>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Please select a department...</option>
+                    <option value="general">General Information</option>
+                    <option value="education">School &amp; Academic Group Tours</option>
+                    <option value="conservation">Conservation &amp; Wildlife Partnerships</option>
+                    <option value="media">Media &amp; Press Inquiries</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Your Inquiry <span class="required" aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" rows="6" required placeholder="Describe your inquiry details here..."></textarea>
+            </div>
+        </fieldset>
+
+        <div class="form-actions">
+            <button type="submit">Submit Secure Message</button>
+            <p class="form-disclaimer">By submitting this form, you acknowledge that your data will be securely processed internally. No commercial ticketing operations are conducted on this website infrastructure.</p>
+        </div>
+    </form>
+</main>
+
+<%- include('partials/footer') %>
+
+
